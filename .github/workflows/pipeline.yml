@@ -57,7 +57,7 @@ jobs:
         with:
           node-version: '20'
       - name: Deploy
-        if: ${{ github.env.SKIP_DEPLOY == 'true' }}
+        if: ${{ env.SKIP_DEPLOY == 'true' }}
         run: curl https://api.render.com/deploy/${{ secrets.RENDER_SERVICE_ID }}?key=${{ secrets.RENDER_API_KEY }}
         
       - name: Deploy Success
@@ -77,7 +77,7 @@ jobs:
         with:
           node-version: '20'
       - name: Bump version and push tag
-        if: ${{ github.env.SKIP_DEPLOY == 'true' }}
+        if: ${{ env.SKIP_DEPLOY == 'true' }}
         uses: anothrNick/github-tag-action@1.71.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
