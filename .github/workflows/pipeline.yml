@@ -29,7 +29,6 @@ jobs:
 
       - name: Build Backend
         run: |
-          cd ../
           npm install
           npm run lint
       
